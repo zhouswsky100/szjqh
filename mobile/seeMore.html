@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<meta name="wap-font-scale" content="no">
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+		<title>跨境电商资讯-亚马逊卖家资讯-百马汇</title>
+		<meta name="keywords" content="亚马逊开店,如何开网店,怎样开亚马逊店，亚马逊货源，亚马逊货源怎么找，亚马逊政策">
+		<meta name="description" content="百马汇亚马逊资讯频道提供最全面的亚马逊新闻资讯，亚马逊电商行业前沿动态，围绕亚马逊新闻、亚马逊运营干货、行业数据、亚马逊规则政策等内容，帮助亚马逊卖家更好的获取行业信息。">
+		<link rel="stylesheet" href="css/mui.min.css">
+		<link rel="stylesheet" href="css/style2.css">
+		<link rel="stylesheet" type="text/css" href="css/wap_news.css">
+		<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+	</head>
+	<body>
+		<div class="common_header">
+			<a href="" class="logo"></a>
+			<div class="right_menu"><img src="images/menu.png" /></div>
+			<div class="menu_down">
+				<ul>
+					<li>
+						<a href="">
+							<span>首页</span>
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<span>﻿跨境电商培训</span>
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<span>﻿跨境电商综合服务</span>
+						</a>
+					</li>
+					<li>
+						<a href="﻿#">
+							<span>﻿资讯中心</span>
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<span>﻿关于我们</span>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="mainnew">
+			<div class="w_new_list">
+				<ul>
+					<li><a href="javascript:" class="active">一周爆闻</a></li>
+					<li><a href="javascript:">新手开店</a></li>
+					<li><a href="javascript:">精选干货</a></li>
+					<li><a href="javascript:">电商资讯</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="m-page-container">
+			<div class="pageindex m-pagebd" style="padding-top: 0rem; display: block;">
+				<div class="m-widget-topReading">
+					<div class="m-topReading">
+						<div class="m-list J_m-list" id="listnews">
+							
+						
+						</div>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="m-more-box" onclick="getpost('1')">
+						<a href="javascript:" class="m-more J_widget-page">加载更多...</a>
+		</div>
+		<div class="titlemsg"  style="display: none;"> 
+			<div id="st_mask" style="width: 100%;height: 100%;background: rgba(0, 0, 0, 0.4);position: fixed;left: 0px;top: 0px;z-index: 4;display: block;"></div>
+			<div id="st_alertBox" style="width: 100%; position: fixed; left: 0px; top: 34%; text-align: center; z-index: 5; display: block;">
+				<div id="st_alert"  onlick="close()" style="width: 75%; margin: 0px auto; background: rgb(255, 255, 255); border-radius: 2px; overflow: hidden; padding-top: 40px; text-align: center;">
+					<span id="st_alert_text" style="background: rgb(255, 255, 255); overflow: hidden; padding: 15px 8px 30px; text-align: center; display: block;"></span>
+					<span id="st_alert_btn"  style="background: rgb(27, 121, 248); color: rgb(255, 255, 255); padding: 8px; text-align: center; display: block; width: 40%; margin: 0px auto 20px; border-radius: 2px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">确定</span>
+				</div>
+			</div>
+		</div>
+		<script>	
+			$(".w_new_list ul li").click(function() {
+				$(".w_new_list ul li").find('a').removeClass('active');
+				$(this).find('a').addClass('active');
+				var index = $(this).index();
+				$(".w_new_content").hide();
+				$(".w_new_content").eq(index).show();
+				window.location.href="http://www.szjqh.cn/mobile/seeMore.html?id="+index+""
+			});
+		</script>
+
+		<script>
+		$(function () {
+				var pagesize = 1
+				id = getUrlParameter("id")
+				$(".w_new_list ul li").find('a').removeClass('active');
+				$(".w_new_list ul li").eq(id).find('a').addClass('active');
+
+				++id
+				$.ajax({
+				url :"http://www.szjqh.cn/news/find/"+pagesize+"/5/"+id+"",
+					type : "get",
+					success : function(data) {
+						var htmlObj = []
+						if(data.datas.length>0){
+							for(var i=0 ;i<data.datas.length;i++){
+								   html='<div class="item clearfix">'+
+										'<div class="img-box">'+
+										'<a href="http://www.szjqh.cn/mobile/newsDetails.html?id='+data.datas[i].nid+'" data-app-target="_blank">'+
+										'	<img src="images/news_img6.jpg" alt="深度解析亚马逊千亿营收的八大增长策略（一）">'+
+										'</a>'+
+										'</div>'+
+										'<div class="info">'+
+										'<a href="newsDetails.html" data-app-target="_blank">'+
+										'	<div class="tit-box">'+data.datas[i].ntitle.replace(/<[^>]+>/g,"")+'</div>'+
+										'</a>'+
+										'<div class="opts">'+
+										'	<span class="cate-name">发布时间</span>'+
+										'	<div class="attention">'+
+										'		<span>'+getNowFormatDate(data.datas[i].ndate,'0')+'</span>'+
+										'	</div>'+
+										'</div>'+
+										'</div>'+
+										'</div>'
+										htmlObj.push(html)
+										
+										
+							}
+							$("#listnews").html(htmlObj.join(''))
+					}else{
+					}
+			
+					}
+				});
+				$("#st_alert").click(function(){
+					$(".titlemsg").hide();
+				})
+		})
+		function  getpost(num){
+			var pagesize = 1
+			if(num=='1'){
+				++pagesize
+			}else if(num=='0'){
+				--pagesize
+			}else{
+			
+			}
+			id = getUrlParameter("id")
+			$(".news_nav li").removeClass()
+			$(".news_nav li").eq(--id).addClass("active")
+			++id
+			
+			$.ajax({
+				url :"http://www.szjqh.cn/news/find/"+pagesize+"/5/"+id+"",
+				type : "get",
+				success : function(data) {
+					var htmlObj = []
+					if(data.code=='1000'){
+						if(data.datas.length>0){
+							for(var i=0 ;i<data.datas.length;i++){
+								   html='<div class="newsitem"><a href="http://www.szjqh.cn/mobile/newsDetails.html?id='+data.datas[i].nid+'">'+
+										'<div class="box clearfix">'+
+										'<div class="img_1">'+
+										'<img src="http://www.amzfriday.com/Uploads/partner/20181228/5c25ceece3899.jpg" style="width: 460px;height: 240px;" />'+
+										'</div>'+
+										'<div class="mewsmoretext">'+
+										'<span>'+getNowFormatDate(data.datas[i].ndate,'0')+'</span>'+
+										'<h1>'+data.datas[i].ntitle.replace(/<[^>]+>/g,"")+'</h1>'+
+										'<article> </article>'+
+										'</div>'+
+									'</div>'+
+								'</a></div>'
+									htmlObj.push(html)
+							}
+							$("#listnews").html(htmlObj.join(''))
+						}else{
+							$(".titlemsg").show();
+							$("#st_alert_text").text("已经是最后一页了")
+						}
+					}else{
+						$("#st_alert_text").text("已经是第一页了")
+						$(".titlemsg").show();
+					}
+			
+		
+				}
+			});
+				
+				
+			
+		}
+		function getNowFormatDate(data,index) {
+				var date = new Date(data);
+				var seperator1 = "-";
+				var year = date.getFullYear();
+				var month = date.getMonth() + 1;
+				var strDate = date.getDate();
+				if (month >= 1 && month <= 9) {
+					month = "0" + month;
+				}
+				if (strDate >= 0 && strDate <= 9) {
+					strDate = "0" + strDate;
+				}
+				if(index=='0'){
+					var currentdate = year+ seperator1+month + seperator1 + strDate;
+
+				}else{
+					var currentdate =  year;
+
+				}
+				return currentdate;
+		}
+		function getUrlParameter(sParam) {
+			var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+			sURLVariables = sPageURL.split('&'),
+			sParameterName,
+			i;
+			
+			for (i = 0; i < sURLVariables.length; i++) {
+				sParameterName = sURLVariables[i].split('=');
+				if (sParameterName[0] === sParam) {
+					return sParameterName[1] === undefined ? true : sParameterName[1];
+				}
+			}
+		}
+	</script>
+	</body>
+</html>

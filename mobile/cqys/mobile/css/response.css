@@ -1,0 +1,136 @@
+@charset "utf-8";
+@media only screen and (max-width:1440px) {
+	.index-menu {
+		width: 80%;
+		margin: 0 10%
+	}
+	.navbar {
+		width: 10%
+	}
+	footer .box:after {
+		width: 3%
+	}
+	footer .box {
+		width: 74%;
+		padding-left: 4%;
+	}
+	footer .address .Content span {
+		margin-left: 20px;
+	}
+	/*footer .address .Content {
+		white-space: nowrap;
+		display: inline-block;
+		text-align: left;
+		font-size: 0;
+		vertical-align: middle;
+		float: none;
+		vertical-align: middle;
+		line-height: 1
+	}*/
+	/*footer .address .left {
+		display: inline-block
+	}*/
+	footer .address {
+		position: relative
+	}
+	/*footer .address .left {
+		width: 20%;
+		float: none
+	}*/
+	footer .address .left img {
+		width: 100%
+	}
+	footer .box:after{top: 92px;}
+	.goYx{width: 78%;}
+	.goYx h2{font-size: 48px;}
+	.goYx p img{height: 31px;}
+	.body-box{margin-bottom: 327px;}
+}
+@media only screen and (max-width:1366px) {
+	.goYx h2{font-size: 46px;line-height: 58px;}
+	.goYx p img{height: 30px;}
+	.body-box{margin-bottom: 324px;}
+}
+@media only screen and (max-width:1280px) {
+	.goYx h2{font-size: 42px;line-height: 54px;}
+	.goYx p img{height: 27px;}
+	.body-box{margin-bottom: 317px;}
+}
+@media only screen and (max-width:1200px) {
+	footer .box{padding: 0;}
+	footer .box:after, .goYx{display: none;}
+	footer .address .left{width: 31%;}
+}
+@media only screen and (max-width:1140px) {
+	footer .box:after {
+		display: none
+	}
+	footer .address .Content span {
+		margin-right: 10px;
+		width: auto;
+		margin-left: 10px;
+	}
+	footer .address {
+		font-size: 0
+	}
+	footer .address .Content {
+		text-align: right;
+	}
+	.contact .Content .right span {
+		font-size: 26px
+	}
+	.contact .Content .right h1 {
+		font-size: 28px
+	}
+	footer .address .left{width: 24%;}
+	footer .address .Content{padding-top: 0;}
+}
+
+@media only screen and (max-width:992px) {
+	footer .address .left {
+		width: 50%
+	}
+	footer .address .Content {
+		width: 100%;
+		padding: 30px 0
+	}
+	footer .address {
+		padding: 30px 0;
+		height: auto
+	}
+	footer .friendship {
+		padding-top: 0
+	}
+	footer {
+		position: relative;
+	}
+	body {
+		padding: 0
+	}
+	.body-box{
+		padding-bottom: 30px;
+	}
+	footer .box{width: 95%;}
+	footer .address .left{width: auto;}
+	footer .address .Content{text-align: left;}
+	footer .address .Content span{margin: 0 20px 0 0;}
+	.body-box{margin-bottom: 0;}
+	footer{bottom: 0;}
+}
+
+@media only screen and (max-width:767px) {
+	footer .address .Content span {
+		display: block;
+		margin: 10px 0
+	}
+	footer .box {
+		width: 95%;
+		margin: 0 2.5%
+	}
+	footer .friendship .Content a {
+		display: initial
+	}
+	footer .address .Content, footer .address{padding: 0;}
+	footer .address .Content span{display: none;}
+	footer .address .Content span:last-child{display: block;}
+}

@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<meta name="wap-font-scale" content="no">
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+		<title>深度解析亚马逊千亿营收的八大增长策略（一）-百马汇</title>
+		<meta name="keywords" content="亚马逊开店,如何开网店,怎样开亚马逊店，亚马逊货源，亚马逊货源怎么找，亚马逊政策">
+		<meta name="description" content="百马汇亚马逊资讯频道提供最全面的亚马逊新闻资讯，亚马逊电商行业前沿动态，围绕亚马逊新闻、亚马逊运营干货、行业数据、亚马逊规则政策等内容，帮助亚马逊卖家更好的获取行业信息。">
+		<link rel="stylesheet" href="css/mui.min.css">
+		<link rel="stylesheet" href="css/style2.css">
+		<link rel="stylesheet" type="text/css" href="css/wap_news.css">
+		<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+	</head>
+	<body>
+		<div class="common_header">
+			<a href="" class="logo"></a>
+			<div class="right_menu"><img src="images/menu.png" /></div>
+			<div class="menu_down">
+				<ul>
+					<li>
+						<a href="">
+							<span>首页</span>
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<span>﻿跨境电商培训</span>
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<span>﻿跨境电商综合服务</span>
+						</a>
+					</li>
+					<li>
+						<a href="﻿#">
+							<span>﻿资讯中心</span>
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<span>﻿关于我们</span>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="mainnew">
+			<div class="w_new_list">
+				<ul>
+					<li><a href="javascript:" class="active">一周爆闻</a></li>
+					<li><a href="javascript:">新手开店</a></li>
+					<li><a href="javascript:">精选干货</a></li>
+					<li><a href="javascript:">电商资讯</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="m-page-container">
+			<div class="page-detials m-pagebd J_m-detail" style="padding-top: 0rem; display: block;">
+				<div class="m-normal-detail">
+					<div class="m-article-head">
+						<div class="head-box">
+							<h3 class="article-title  J_detail-title" id="tit"></h3>
+							<div class="article-info clearfix">
+								<div class="lf">
+									<span class="a-type">发布时间：</span><span class="time" id="time"></span>
+
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="m-article-content J_widget-articleId clearfix" id="news">
+						
+
+					</div>
+
+				</div>
+			</div>
+		</div>
+		<script>	
+			$(".w_new_list ul li").click(function() {
+				$(".w_new_list ul li").find('a').removeClass('active');
+				$(this).find('a').addClass('active');
+				var index = $(this).index();
+				$(".w_new_content").hide();
+				$(".w_new_content").eq(index).show();
+				var i = index
+						
+				window.location.href="http://www.szjqh.cn/mobile/seeMore.html?id="+i+""
+			});
+		</script>
+		<script>
+			function isWeiXin() {
+
+
+				var ua = window.navigator.userAgent.toLowerCase();
+
+				if (ua.match(/MicroMessenger/i) == 'micromessenger') {
+					return true;
+				} else {
+					return false;
+				}
+			}
+			(function() {
+
+				if (isWeiXin()) {
+					$("#footqq").attr("href", "http://wpa.qq.com/msgrd?v=3&uin=350128285&site=qq&menu=yes");
+					if ($(".wxonline")) {
+						$(".wxonline").attr("href", "http://wpa.qq.com/msgrd?v=3&uin=350128285&site=qq&menu=yes");
+					}
+				}
+				$(".right_menu").click(function(event) {
+					if ($(".menu_down").is(":hidden")) {
+						$(".menu_down").show("slow");
+						$('.menu_down').animate({
+							right: '0'
+						}, 500);
+					} else {
+						$(".menu_down").hide("slow");
+					}
+					event.stopPropagation();
+				});
+				$('body').click(function() {
+					$(".menu_down").hide();
+				});
+
+			})();
+		</script>
+		<script>
+			var _hmt = _hmt || [];
+			(function() {
+				var hm = document.createElement("script");
+				hm.src = "https://hm.baidu.com/hm.js?1673f783c862ea674f29bd54fe7fc8a4";
+				var s = document.getElementsByTagName("script")[0];
+				s.parentNode.insertBefore(hm, s);
+			})();
+		</script>
+
+
+		<script>
+			$(document).ready(function() {
+				$('.m-article-content img').each(function() {
+					$(this).removeAttr("style");
+				});
+			});
+		</script>
+		
+	
+		
+		<script>
+			//渲染数据
+		$(function () {
+			 id = getUrlParameter("id")
+			$.ajax({
+				url : "http://www.szjqh.cn/news/"+id+"",
+				type : "get", 
+				success : function(data) {
+				if(data.code=='1000'){
+					$("#news").append(data.datas.ncontent)
+					$("#tit").text(data.datas.ntitle)
+					$("#time").text(getNowFormatDate(data.datas.ndate))
+				}	
+
+				}
+			});
+			//上一篇
+			 id = getUrlParameter("id")
+			if(id!=0){
+				id--
+			 }else{
+				 $("#stit").test("暂无")
+				 $("#shref").text()
+			 }
+			$.ajax({
+				url : "http://www.szjqh.cn/news/"+id+"",
+				type : "get", 
+				success : function(data) {
+					if(data.code=='1000'){
+					var id = data.datas.nid
+						$("#stit").text(data.datas.ntitle)
+						$("#shref").attr("href","http://www.szjqh.cn/mobile/template/newsDetails.html?id="+id+""); 
+					}else{
+						$("#stit").text("暂无文章")
+						$("#shref").attr("href","#"); 
+					}
+						
+
+				}
+			});
+			//下一篇
+			 id = getUrlParameter("id")	
+			id++
+			 
+			$.ajax({
+				url : "http://www.szjqh.cn/news/"+id+"",
+				type : "get", 
+				success : function(data) {
+					if(data.code=='1000'){
+						var id = data.datas.nid
+
+						$("#xtit").text(data.datas.ntitle)
+						$("#xhref").attr("href","http://www.szjqh.cn/mobile/template/newsDetails.html?id="+id+""); 
+					}else{
+						$("#xtit").text("暂无文章")
+						$("#xhref").attr("href","#"); 
+
+					}
+						
+
+				}
+			});
+		})
+		
+		function getUrlParameter(sParam) {
+			var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+			sURLVariables = sPageURL.split('&'),
+			sParameterName,
+			i;
+			
+			for (i = 0; i < sURLVariables.length; i++) {
+				sParameterName = sURLVariables[i].split('=');
+				if (sParameterName[0] === sParam) {
+					return sParameterName[1] === undefined ? true : sParameterName[1];
+				}
+			}
+		}
+		function getNowFormatDate(data,index) {
+				var date = new Date(data);
+				var seperator1 = "-";
+				var year = date.getFullYear();
+				var month = date.getMonth() + 1;
+				var strDate = date.getDate();
+				if (month >= 1 && month <= 9) {
+					month = "0" + month;
+				}
+				if (strDate >= 0 && strDate <= 9) {
+					strDate = "0" + strDate;
+				}
+				var currentdate = year + seperator1+ month + seperator1 + strDate;
+				return currentdate;
+		}
+	</script>
+	</body>
+</html>
